@@ -39,3 +39,8 @@ jobs:
           echo "Chromium: $(which chromium-browser)"
           echo "Brave: $(which brave-browser)"
           echo "Firefox: $(which firefox)"
+          
+      - name: Run Chrome
+        run: |
+          chrome --headless https://chromium.org &
+          ps
