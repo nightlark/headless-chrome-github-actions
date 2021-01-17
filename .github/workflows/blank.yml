@@ -41,6 +41,7 @@ jobs:
           echo "Firefox: $(which firefox)"
           
       - name: Run Chrome
+        if: matrix.os == ubuntu-latest
         run: |
-          chrome --headless https://chromium.org &
+          google-chrome --headless https://chromium.org &
           ps
