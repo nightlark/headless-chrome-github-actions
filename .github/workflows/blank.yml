@@ -13,8 +13,12 @@ jobs:
         include:
           - os: ubuntu-latest
             chrome_install_cmd: wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && sudo dpkg -i google-chrome-stable_current_amd64.deb
+            chromium_install_cmd: sudo apt-get install chromium-browser
+            brave_install_cmd: sudo apt-get install brave-browser
           - os: macos-latest
             chrome_install_cmd: brew install --cask google-chrome
+            chromium_install_cmd: brew install --cask chromium-browser
+            brave_install_cmd: brew install --cask brave-browser
     runs-on: ${{ matrix.os }}
 
     steps:
@@ -22,6 +26,12 @@ jobs:
       
       - name: Install Chrome
         run: ${{ matrix.chrome_install_cmd }}
+        
+      - name: Install Chromium
+        run: ${{ matrix.chromium_install_cmd }}
+      
+      - name: Install Brave
+        run: ${{ matrix.brave_install_cmd }}
 
       - name: Check for browsers
         run: |
