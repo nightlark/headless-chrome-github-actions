@@ -10,10 +10,18 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest]
+        include:
+          - os: ubuntu-latest
+            chrome_install_cmd: wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && sudo dpkg -i google-chrome-stable_current_amd64.deb
+          - os: macos-latest
+            chrome_install_cmd: brew install --cask google-chrome
     runs-on: ${{ matrix.os }}
 
     steps:
       - uses: actions/checkout@v2
+      
+      - name: Install Chrome
+        run: ${{ chrome_install_cmd }}
 
       - name: Check for browsers
         run: |
