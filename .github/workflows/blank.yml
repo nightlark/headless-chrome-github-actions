@@ -21,7 +21,7 @@ jobs:
       - uses: actions/checkout@v2
       
       - name: Install Chrome
-        run: ${{ chrome_install_cmd }}
+        run: ${{ matrix.chrome_install_cmd }}
 
       - name: Check for browsers
         run: |
