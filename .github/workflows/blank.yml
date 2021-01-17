@@ -39,7 +39,11 @@ jobs:
           echo "Chromium: $(which chromium-browser)"
           echo "Brave: $(which brave-browser)"
           echo "Firefox: $(which firefox)"
-          
+      
+      - name: List Applications
+        if: matrix.os == 'macos-latest'
+        run: ls /Applications/
+      
       - name: Run Chrome
         if: matrix.os == 'ubuntu-latest'
         run: |
