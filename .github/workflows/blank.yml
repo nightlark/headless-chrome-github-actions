@@ -17,7 +17,7 @@ jobs:
             brave_install_cmd: sudo apt-get install brave-browser
           - os: macos-latest
             chrome_install_cmd: brew install --cask google-chrome
-            chromium_install_cmd: brew install --cask chromium-browser
+            chromium_install_cmd: brew install --cask chromium
             brave_install_cmd: brew install --cask brave-browser
     runs-on: ${{ matrix.os }}
 
