@@ -25,7 +25,7 @@ jobs:
 
       - name: Check for browsers
         run: |
-          echo "Chrome: $(which chrome)"
+          echo "Chrome: $(which google-chrome)"
           echo "Chromium: $(which chromium)"
           echo "Brave: $(which brave)"
           echo "Firefox: $(which firefox)"
