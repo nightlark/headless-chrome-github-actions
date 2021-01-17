@@ -44,6 +44,7 @@ jobs:
         if: matrix.os == 'macos-latest'
         run: |
           ls /Applications/
+          mkdir -p "~/Library/Application Support/Google/Chrome" && touch "~/Library/Application Support/Google/Chrome/First Run"
           open -a "google chrome"
           screencapture test.jpg
       - uses: actions/upload-artifact@v2
