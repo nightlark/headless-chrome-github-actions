@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Check for browsers
+        run: |
+          echo "Chrome: $(which chrome)"
+          echo "Chromium: $(which chromium)"
+          echo "Brave: $(which brave)"
+          echo "Firefox: $(which firefox)"
