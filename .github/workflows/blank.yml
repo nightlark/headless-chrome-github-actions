@@ -40,9 +40,16 @@ jobs:
           echo "Brave: $(which brave-browser)"
           echo "Firefox: $(which firefox)"
       
-      - name: List Applications
+      - name: Open Chrome
         if: matrix.os == 'macos-latest'
-        run: ls /Applications/
+        run: |
+          ls /Applications/
+          open -a "google chrome"
+          screencapture test.jpg
+      - uses: actions/upload-artifact@v2
+        if: matrix.os == 'macos-latest'
+        with:
+          path: test.jpg
       
       - name: Run Chrome
         if: matrix.os == 'ubuntu-latest'
