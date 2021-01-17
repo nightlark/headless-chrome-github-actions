@@ -29,3 +29,4 @@ jobs:
           echo "Chromium: $(which chromium)"
           echo "Brave: $(which brave)"
           echo "Firefox: $(which firefox)"
+          find / -type d -name "*Chrome.app" 
