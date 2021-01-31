@@ -35,6 +35,9 @@ jobs:
       - name: Install Brave
         run: ${{ matrix.brave_install_cmd }}
 
+      - name: Install Vivaldi
+        run: ${{ matrix.vivaldi_install_cmd }}
+        
       - name: Check for browsers
         run: |
           echo "Chrome: $(which google-chrome)"
