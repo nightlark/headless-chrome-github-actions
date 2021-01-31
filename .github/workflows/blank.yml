@@ -32,8 +32,10 @@ jobs:
       - name: Install Chromium
         run: ${{ matrix.chromium_install_cmd }}
       
-      - name: Install Brave
-        run: ${{ matrix.brave_install_cmd }}
+      #- name: Install Brave
+      #  run: ${{ matrix.brave_install_cmd }}
+      - uses: nightlark/headless-chrome-github-actions@8d991c7ea98e1438aa7d5bbdae00bb0ef477d80e
+        if: matrix.os == 'ubuntu-latest'
 
       - name: Install Vivaldi
         run: ${{ matrix.vivaldi_install_cmd }}
