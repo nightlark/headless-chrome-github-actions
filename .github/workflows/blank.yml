@@ -15,10 +15,12 @@ jobs:
             chrome_install_cmd: wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && sudo dpkg -i google-chrome-stable_current_amd64.deb
             chromium_install_cmd: sudo apt-get install chromium-browser
             brave_install_cmd: curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add - && echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list && sudo apt update && sudo apt install brave-browser
+            vivaldi_install_cmd: wget https://downloads.vivaldi.com/stable/vivaldi-stable_3.6.2165.34-1_amd64.deb && sudo dpkg -i vivaldi-stable_3.6.2165.34-1_amd64.deb
           - os: macos-latest
             chrome_install_cmd: brew install --cask google-chrome
             chromium_install_cmd: brew install --cask chromium
             brave_install_cmd: echo "Homebrew brave-browser cask is broken"
+            vivaldi_install_cmd: brew install --cask vivaldi
     runs-on: ${{ matrix.os }}
 
     steps:
@@ -39,6 +41,7 @@ jobs:
           echo "Chromium: $(which chromium-browser)"
           echo "Brave: $(which brave-browser)"
           echo "Firefox: $(which firefox)"
+          echo "Vivaldi: $(which vivaldi)"
       
       - name: Open Chrome
         if: matrix.os == 'macos-latest'
