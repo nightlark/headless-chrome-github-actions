@@ -1,0 +1,12 @@
+name: 'Install Browsers'
+description: 'Install browsers in GitHub Actions'
+# eventually add inputs to specify what set of browsers to install
+# could output the install path to each browser
+runs:
+  using: "composite"
+  steps:
+    - run: curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add - && echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list && sudo apt update && sudo apt install brave-browser
+      shell: bash
+    # probably will be easiest to use runner.os to get platform to install on: Linux, Windows, macOS
+    #- run: ${{ github.action_path }}/${{ runner.os }}.sh
+    #  shell: bash
